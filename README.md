@@ -1,6 +1,6 @@
 # Wiki-Bacon
 
-This project aims to replicate sixdegreesofwikipedia.com. This draws from the idea of [six degrees of separation](https://en.wikipedia.org/wiki/Six_degrees_of_separation), wherein any two people in the world are within six social connections (e.g. family, friends, colleagues) from each other.
+This project aims to replicate [sixdegreesofwikipedia.com](https://www.sixdegreesofwikipedia.com/). This draws from the idea of [six degrees of separation](https://en.wikipedia.org/wiki/Six_degrees_of_separation), wherein any two people in the world are within six social connections (e.g. family, friends, colleagues) from each other.
 
 Instead of people, this project aims to find what the minimum number of clicks is to get from any page on Wikipedia to any other page on Wikipedia. Please note that only articles (i.e. does not include files, images, external links) on the English version of Wikipedia (https://en.wikipedia.org/) will be considered for this project.
 
@@ -64,7 +64,7 @@ The first one is for querying all the pages available on the website by setting 
     "aplimit": "max"
 }
 ```
-[Click here.](https://en.wikipedia.org/w/api.php?action=query&format=json&list=allpages&apnamespace=0&apfilterredir=nonredirects&aplimit=max)
+[Check it out here.](https://en.wikipedia.org/w/api.php?action=query&format=json&list=allpages&apnamespace=0&apfilterredir=nonredirects&aplimit=max)
 
 The second one is for querying the redirects and links leading to each page, which can be done by setting [`prop=linkshere`](https://en.wikipedia.org/w/api.php?action=help&modules=query%2Blinkshere). The actual parameters used are shown below. Sometimes, it takes more than one request to obtain all the redirects and links leading to a page. Moving through the list was made possible by setting `lhcontinue` to the `lhcontinue` value returned by each request, when applicable.
 ``` json
@@ -72,13 +72,13 @@ The second one is for querying the redirects and links leading to each page, whi
     "action": "query",
     "format": "json",
     "prop": "linkshere",
-    "pageids": 2327951, // varies per id
+    "pageids": 2327951,
     "lhprop": "pageid|title|redirect",
     "lhnamespace": "0",
     "lhlimit": "max"
 }
 ```
-[Click here.](https://en.wikipedia.org/w/api.php?action=query&format=json&prop=linkshere&pageids=2327951&lhprop=pageid%7Ctitle%7Credirect&lhnamespace=0&lhlimit=max)
+[Check it out here.](https://en.wikipedia.org/w/api.php?action=query&format=json&prop=linkshere&pageids=2327951&lhprop=pageid%7Ctitle%7Credirect&lhnamespace=0&lhlimit=max)
 
 For the first set of parameters, there was no problem with the speed of the requests. Even with a slow 1.5 Mbps download connection, it only took around 6 hours to get the IDs and titles for all the articles. The bigger problem was mostly due to the slow database insertion.
 
